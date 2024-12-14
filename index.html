@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dddddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td:last-child {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* قواعد CSS لتصغير حجم النص والجداول على الشاشات الصغيرة */
+        @media screen and (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>رقم الطلب</th>
+                <th>حالة الطلب</th>
+                <th>تاريخ التقديم</th>
+                <th>اسم مقدم الطلب</th>
+                <th>ملاحظات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>J123456</td>
+                <td>تم القبول</td>
+                <td>2024-01-15</td>
+                <td>John Doe</td>
+                <td>لا توجد ملاحظات</td>
+            </tr>
+            <tr>
+                <td>J654321</td>
+                <td>قيد المعالجة</td>
+                <td>2024-02-10</td>
+                <td>Jane Smith</td>
+                <td>يرجى تقديم مستندات إضافية</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
