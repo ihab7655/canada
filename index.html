@@ -50,104 +50,135 @@
                 padding: 8px;
             }
         }
-     <script>
-    const countries = [
-      "Algeria", "Bahrain", "Comoros", "Djibouti", "Egypt", "Iraq", "Jordan", "Kuwait", 
-      "Lebanon", "Libya", "Mauritania", "Morocco", "Oman", "Palestine", "Qatar", 
-      "Saudi Arabia", "Somalia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen",
-      "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium",
-      "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark",
-      "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland",
-      "Ireland", "Italy", "Kazakhstan", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
-      "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway",
-      "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia", 
-      "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom"
-    ];
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>الرقم</th>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+                    <th>البلد</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>محمد</td>
+                    <td>30</td>
+                    <td>المغرب</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>أحمد</td>
+                    <td>25</td>
+                    <td>تونس</td>
+                </tr>
+                <!-- أضف المزيد من الصفوف هنا -->
+            </tbody>
+        </table>
+    </div>
 
-    const countrySelect = document.getElementById('countryOfBirth');
+    <script>
+        const countries = [
+            "Algeria", "Bahrain", "Comoros", "Djibouti", "Egypt", "Iraq", "Jordan", "Kuwait",
+            "Lebanon", "Libya", "Mauritania", "Morocco", "Oman", "Palestine", "Qatar",
+            "Saudi Arabia", "Somalia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen",
+            "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium",
+            "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark",
+            "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland",
+            "Ireland", "Italy", "Kazakhstan", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg",
+            "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway",
+            "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia",
+            "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom"
+        ];
 
-    countries.forEach(country => {
-      const option = document.createElement('option');
-      option.value = country;
-      option.textContent = country;
-      countrySelect.appendChild(option);
-    });
+        const countrySelect = document.getElementById('countryOfBirth');
 
-    function toggleApplicationNumberField() {
-      const applicationNumberField = document.getElementById('applicationNumberField');
-      const statusSelect = document.getElementById('status');
-      applicationNumberField.style.display = statusSelect.value === 'new-applicant' ? 'block' : 'none';
-    }
+        countries.forEach(country => {
+            const option = document.createElement('option');
+            option.value = country;
+            option.textContent = country;
+            countrySelect.appendChild(option);
+        });
 
-    function validateForm() {
-      // جلب القيم من الحقول
-      const status = document.getElementById('status').value;
-      const applicationNumber = document.getElementById('applicationNumber').value;
-      const countryOfBirth = document.getElementById('countryOfBirth').value;
-      const passportNumber = document.getElementById('passportNumber').value;
-      const issueMonth = document.getElementById('issueMonth').value;
-      const issueDay = document.getElementById('issueDay').value;
-      const issueYear = document.getElementById('issueYear').value;
-      const expiryMonth = document.getElementById('expiryMonth').value;
-      const expiryDay = document.getElementById('expiryDay').value;
-      const expiryYear = document.getElementById('expiryYear').value;
-      const nationality = document.getElementById('nationality').value; // جلب قيمة الجنسية
-  
-      // التحقق من أن جميع الحقول ليست فارغة
-      if (!status || !applicationNumber || !countryOfBirth || !passportNumber || !issueMonth || !issueDay || !issueYear || !expiryMonth || !expiryDay || !expiryYear || !nationality) {
-          alert("يرجى ملء جميع الحقول.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من أن جميع الحقول متطابقة
-      if (status !== applicationNumber || status !== countryOfBirth || status !== passportNumber || status !== issueMonth || status !== issueDay || status !== issueYear || status !== expiryMonth || status !== expiryDay || status !== expiryYear) {
-          alert("يجب أن تكون جميع الحقول متطابقة.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من أن تاريخ الإصدار يجب أن يكون 19/04/2024
-      const issueDate = new Date(issueYear, issueMonth - 1, issueDay);
-      const requiredIssueDate = new Date(2024, 3, 19); // الأشهر تبدأ من 0 في JavaScript
-      if (issueDate.getTime() !== requiredIssueDate.getTime()) {
-          alert("التحقق من تاريخ إصدار جواز السفر فشل. يرجى المحاولة مرة أخرى.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من أن تاريخ الانتهاء يجب أن يكون 18/10/2026
-      const expiryDate = new Date(expiryYear, expiryMonth - 1, expiryDay);
-      const requiredExpiryDate = new Date(2026, 9, 18); // الأشهر تبدأ من 0 في JavaScript
-      if (expiryDate.getTime() !== requiredExpiryDate.getTime()) {
-          alert("التحقق من تاريخ انتهاء جواز السفر فشل. يرجى المحاولة مرة أخرى.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من أن تاريخ الانتهاء يجب أن يكون بعد تاريخ الإصدار
-      if (expiryDate <= issueDate) {
-          alert("تاريخ الانتهاء يجب أن يكون بعد تاريخ الإصدار.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من رقم جواز السفر
-      if (passportNumber !== "N01133502") {
-          alert("التحقق من رقم جواز السفر فشل. يرجى المحاولة مرة أخرى.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // التحقق من الجنسية
-      if (nationality !== "Syria") {
-          alert("التحقق من الجنسية فشل. يجب أن تكون الجنسية Syria.");
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      // تحقق من رقم الطلب
-      if (applicationNumber === "g305505") {
-          window.location.href = "https://ihab7655.github.io/canada";
-          return false; // لمنع الإرسال الفعلي للنموذج
-      }
-  
-      alert("التحقق من رقم الطلب فشل. يرجى المحاولة مرة أخرى.");
-      return false; // لمنع الإرسال الفعلي للنموذج في حال عدم التحقق
-  }
-  </script>
+        function toggleApplicationNumberField() {
+            const applicationNumberField = document.getElementById('applicationNumberField');
+            const statusSelect = document.getElementById('status');
+            applicationNumberField.style.display = statusSelect.value === 'new-applicant' ? 'block' : 'none';
+        }
+
+        function validateForm() {
+            // جلب القيم من الحقول
+            const status = document.getElementById('status').value;
+            const applicationNumber = document.getElementById('applicationNumber').value;
+            const countryOfBirth = document.getElementById('countryOfBirth').value;
+            const passportNumber = document.getElementById('passportNumber').value;
+            const issueMonth = document.getElementById('issueMonth').value;
+            const issueDay = document.getElementById('issueDay').value;
+            const issueYear = document.getElementById('issueYear').value;
+            const expiryMonth = document.getElementById('expiryMonth').value;
+            const expiryDay = document.getElementById('expiryDay').value;
+            const expiryYear = document.getElementById('expiryYear').value;
+            const nationality = document.getElementById('nationality').value; // جلب قيمة الجنسية
+
+            // التحقق من أن جميع الحقول ليست فارغة
+            if (!status || !applicationNumber || !countryOfBirth || !passportNumber || !issueMonth || !issueDay || !issueYear || !expiryMonth || !expiryDay || !expiryYear || !nationality) {
+                alert("يرجى ملء جميع الحقول.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من أن جميع الحقول متطابقة
+            if (status !== applicationNumber || status !== countryOfBirth || status !== passportNumber || status !== issueMonth || status !== issueDay || status !== issueYear || status !== expiryMonth || status !== expiryDay || status !== expiryYear) {
+                alert("يجب أن تكون جميع الحقول متطابقة.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من أن تاريخ الإصدار يجب أن يكون 19/04/2024
+            const issueDate = new Date(issueYear, issueMonth - 1, issueDay);
+            const requiredIssueDate = new Date(2024, 3, 19); // الأشهر تبدأ من 0 في JavaScript
+            if (issueDate.getTime() !== requiredIssueDate.getTime()) {
+                alert("التحقق من تاريخ إصدار جواز السفر فشل. يرجى المحاولة مرة أخرى.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من أن تاريخ الانتهاء يجب أن يكون 18/10/2026
+            const expiryDate = new Date(expiryYear, expiryMonth - 1, expiryDay);
+            const requiredExpiryDate = new Date(2026, 9, 18); // الأشهر تبدأ من 0 في JavaScript
+            if (expiryDate.getTime() !== requiredExpiryDate.getTime()) {
+                alert("التحقق من تاريخ انتهاء جواز السفر فشل. يرجى المحاولة مرة أخرى.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من أن تاريخ الانتهاء يجب أن يكون بعد تاريخ الإصدار
+            if (expiryDate <= issueDate) {
+                alert("تاريخ الانتهاء يجب أن يكون بعد تاريخ الإصدار.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من رقم جواز السفر
+            if (passportNumber !== "N01133502") {
+                alert("التحقق من رقم جواز السفر فشل. يرجى المحاولة مرة أخرى.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // التحقق من الجنسية
+            if (nationality !== "Syria") {
+                alert("التحقق من الجنسية فشل. يجب أن تكون الجنسية Syria.");
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            // تحقق من رقم الطلب
+            if (applicationNumber === "g305505") {
+                window.location.href = "https://ihab7655.github.io/canada";
+                return false; // لمنع الإرسال الفعلي للنموذج
+            }
+
+            alert("التحقق من رقم الطلب فشل. يرجى المحاولة مرة أخرى.");
+            return false; // لمنع الإرسال الفعلي للنموذج في حال عدم التحقق
+        }
+    </script>
 </body>
 </html>
