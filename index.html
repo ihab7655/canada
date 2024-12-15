@@ -3,34 +3,56 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* إضافة الأكواد السابقة هنا */
-    </style>
-    <script>
-        function showTable() {
-            var input = document.getElementById("orderId").value;
-            var rows = document.querySelectorAll("tbody tr");
-            var found = false;
-            rows.forEach(function(row) {
-                if (row.children[0].textContent === input) {
-                    row.style.display = "";
-                    found = true;
-                } else {
-                    row.style.display = "none";
-                }
-            });
-            if (found) {
-                window.location.href = "https://ihab7655.github.io/canada/";
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dddddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td:last-child {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* قواعد CSS لتصغير حجم النص والجداول على الشاشات الصغيرة */
+        @media screen and (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
             }
         }
-    </script>
+    </style>
 </head>
 <body>
-
-<div>
-    <label for="orderId">أدخل رقم الطلب:</label>
-    <input type="text" id="orderId">
-    <button onclick="showTable()">بحث</button>
-</div>
 
 <div class="table-container">
     <table>
