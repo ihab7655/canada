@@ -1,38 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Results Table</title>
-  <style>
-    .results-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    .results-table th, .results-table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-    .results-table th {
-      background-color: #f2f2f2;
-      text-align: left;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* إضافة الأكواد السابقة هنا */
+    </style>
+    <script>
+        function showTable() {
+            var input = document.getElementById("orderId").value;
+            var rows = document.querySelectorAll("tbody tr");
+            var found = false;
+            rows.forEach(function(row) {
+                if (row.children[0].textContent === input) {
+                    row.style.display = "";
+                    found = true;
+                } else {
+                    row.style.display = "none";
+                }
+            });
+            if (found) {
+                window.location.href = "https://ihab7655.github.io/canada/";
+            }
+        }
+    </script>
 </head>
 <body>
-  <table class="results-table" id="resultsTable">
-    <thead>
-      <tr>
-        <th>Application Number</th>
-        <th>Country/Territory</th>
-        <th>Passport Number</th>
-        <th>Issue Date</th>
-        <th>Expiry Date</th>
-      </tr>
-    </thead>
-    <tbody id="resultsBody">
-    </tbody>
-  </table>
+
+<div>
+    <label for="orderId">أدخل رقم الطلب:</label>
+    <input type="text" id="orderId">
+    <button onclick="showTable()">بحث</button>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>رقم الطلب</th>
+                <th>حالة الطلب</th>
+                <th>تاريخ التقديم</th>
+                <th>اسم مقدم الطلب</th>
+                <th>ملاحظات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>J123456</td>
+                <td>تم القبول</td>
+                <td>2024-01-15</td>
+                <td>John Doe</td>
+                <td>لا توجد ملاحظات</td>
+            </tr>
+            <tr>
+                <td>J654321</td>
+                <td>قيد المعالجة</td>
+                <td>2024-02-10</td>
+                <td>Jane Smith</td>
+                <td>يرجى تقديم مستندات إضافية</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
