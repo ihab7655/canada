@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e visa canada</title>
+  <link rel="stylesheet" href="https://ihab7655.github.io/cana/styles.css">
+  <link rel="stylesheet" href="https://ihab7655.github.io/cana/loader.css">
+</head>
+<body>
+  <!-- شاشة التحميل -->
+  <div id="loader" style="display: none;">
+    <p class="loading-text">Wait please...</p>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <header>
+    <p aria-label="Important notice">Provide all correct and truthful information. Omission of information or false information may result in your visa being refused.</p>
+  </header>
+  <div class="logo">
+    <img src="https://i.imgur.com/aQQeebm.png" alt="eVisa Immigration Logo">
+  </div>
+  <main>
+    <div class="instructions">
+      <h2>Welcome to Canada e-Visa</h2>
+      <p>Have you applied for a Canada e-Visa?</p>
+      <hr>
+      <div class="note">
+        <strong>If You Apply, Make Sure That:</strong>
+        <p>✅ You Will Be Visiting the Country for a Maximum of 6 Months</p>
+        <p>✅ You Are Travelling for Business, Medical Treatment, Leisure or a Conference</p>
+      </div>
+      <div class="features">
+        <strong>Features of the Canada E-Visa</strong>
+        <p>✅ Quick Completion, Easy Application, No Fingerprint Required</p>
+      </div>
+    </div>
+
+    <div style="height: 40px;"></div>
+
+    <form id="statusForm" method="post" class="status-form">
+      <div class="header">
+        <img src="https://i.imgur.com/MoDufVO.jpeg" alt="Logo" style="max-width: 100px; height: auto;">
+        <h2>Check your status</h2>
+      </div>
+      <select id="status" name="status" required class="required" onchange="toggleApplicationNumberField()">
+        <option value="">Please select</option>
+        <option value="new-applicant">I am a new applicant. I want to check my status</option>
+      </select>
+
+      <div id="applicationNumberField" style="display: none;">
+        <label for="applicationNumber" class="required">application number</label>
+        <input type="text" id="applicationNumber" name="applicationNumber">
+        <p>This number, which begins with the letter J, can be found at the top of the email you received when your e visa was Start applying.</p>
+      </div>
+
+      <label for="countryOfBirth" class="required">country / territory of issue</label>
+      <select id="countryOfBirth" name="countryOfBirth" required>
+        <option value="">Please select</option>
+      </select>
+
+      <label for="passportNumber" class="required">passport number</label>
+      <input type="text" id="passportNumber" name="passportNumber" required>
+
+      <label for="issueDate" class="required">date of issue of passport</label>
+      <div class="date-container">
+        <input type="text" id="issueDay" name="issueDay" placeholder="Day(DD)" required class="date-field">
+        <input type="text" id="issueMonth" name="issueMonth" placeholder="Month(MM)" required class="date-field">
+        <input type="text" id="issueYear" name="issueYear" placeholder="Year(YYYY)" required class="date-field">
+      </div>
+
+      <label for="expiryDate" class="required">date of expiry of passport</label>
+      <div class="date-container">
+        <input type="text" id="expiryDay" name="expiryDay" placeholder="Day(DD)" required class="date-field">
+        <input type="text" id="expiryMonth" name="expiryMonth" placeholder="Month(MM)" required class="date-field">
+        <input type="text" id="expiryYear" name="expiryYear" placeholder="Year(YYYY)" required class="date-field">
+      </div>
+
+      <button type="button" onclick="checkStatus()">check status</button>
+    </form>
+
+    <div id="results-modal" style="display: none;">
+      <div id="results-content">
+        <span class="close">&times;</span>
+        <h2>Application Status</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>order number</th>
+              <th>Order Status</th>
+              <th>Submission date</th>
+              <th>Applicant's name</th>
+              <th>comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="resultApplicationNumber"></td>
+              <td id="resultStatus"></td>
+              <td id="resultSubmissionDate"></td>
+              <td id="resultApplicantName"></td>
+              <td id="resultNotes"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p id="errorMessage" style="display: none;">Sorry, no request matches this information..</p>
+  </main>
+  <footer>
+    <p>&copy;  2024 Electronic Travel e-visa - Canada. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- تضمين رابط لملف JavaScript -->
+  <script src="https://ihab7655.github.io/cana/script.js"></script>
+</body>
+</html>
